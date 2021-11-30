@@ -3,7 +3,7 @@ import axios from "axios";
 import { Table } from "antd";
 import "./Table.css";
 
-const baseURL = "http://3.110.113.63:5000/trending_keywords/597970";
+const baseURL = "https://cors-everywhere.herokuapp.com/http://3.110.113.63:5000/trending_keywords/597970";
 
 function Keywords() {
   const [keywords, setKeywords] = useState([]);
