@@ -3,15 +3,16 @@ import axios from "axios";
 import { Table } from "antd";
 import "./Table.css";
 
-const baseURL = "https://cors-everywhere.herokuapp.com/http://3.110.113.63:5000/trending_keywords/597970";
 
-function Keywords() {
+function Keywords(props) {
   const [keywords, setKeywords] = useState([]);
   useEffect(() => {
+
+const baseURL = `https://cors-everywhere.herokuapp.com/http://3.110.113.63:5000/trending_keywords/${props.appid}`;
     axios.get(baseURL).then((response) => {
       setKeywords(response.data.Trending_keywords);
     });
-  }, []);
+  }, [props.appid]);
 
   console.log(keywords);
 

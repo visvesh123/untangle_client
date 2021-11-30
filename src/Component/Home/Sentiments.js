@@ -6,20 +6,21 @@ import "antd/dist/antd.css";
 import { Statistic, Card, Row, Col } from "antd";
 import { ArrowUpOutlined, ArrowDownOutlined } from "@ant-design/icons";
 
-const baseURL = "https://cors-everywhere.herokuapp.com/http://52.66.244.63:8000/review_sentiments/598450";
 
-function Sentiments() {
+
+function Sentiments(props) {
   const [sentiments, setSentiments] = useState();
+  const baseURL = `https://cors-everywhere.herokuapp.com/http://52.66.244.63:8000/review_sentiments/${props.appid}`;
   useEffect(() => {
     axios.get(baseURL).then((response) => {
       setSentiments(response.data.sentiment);
     });
-  }, []);
+  }, [props.appid]);
 
   console.log(sentiments);
   // var p = sentiments[0];
   // var n = sentiments[1];
-
+if(!sentiments)return null;
   return (
     <div className="site-statistic-demo-card">
       <Row gutter={16}>
@@ -27,7 +28,7 @@ function Sentiments() {
           <Card>
             <Statistic
               title="Positive"
-              value={sentiments}
+              value={sentiments[0]}
               precision={2}
               valueStyle={{ color: "#3f8600" }}
               prefix={<ArrowUpOutlined />}
@@ -39,7 +40,7 @@ function Sentiments() {
           <Card>
             <Statistic
               title="Negative"
-              value={sentiments}
+              value={sentiments[1]}
               precision={2}
               valueStyle={{ color: "#cf1322" }}
               prefix={<ArrowDownOutlined />}

@@ -2,15 +2,16 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Card, Col, Row } from "antd";
 
-const baseURL = "https://cors-everywhere.herokuapp.com/http://52.66.244.63:8000/avg_rating/598450";
 
-function Rating() {
+
+function Rating(props) {
   const [rating, setRating] = useState();
   useEffect(() => {
+    const baseURL = `https://cors-everywhere.herokuapp.com/http://52.66.244.63:8000/avg_rating/${props.appid}`;
     axios.get(baseURL).then((response) => {
       setRating(response.data.Average_Rating);
     });
-  }, []);
+  }, [props.appid]);
 
   console.log("Avg Rating  " + rating);
 

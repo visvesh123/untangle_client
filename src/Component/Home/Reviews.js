@@ -1,19 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState  } from "react";
 import axios from "axios";
 import "antd/dist/antd.css";
 import { Statistic, Row, Col } from "antd";
 import { LikeOutlined } from "@ant-design/icons";
 import Rating from "./Rating";
 
-const baseURL = "https://cors-everywhere.herokuapp.com/http://52.66.244.63:8000/no_of_reviews/597970";
 
-function Reviews() {
+
+function Reviews(props) {
   const [reviews, setReviews] = useState();
-  useEffect(() => {
-    axios.get(baseURL).then((response) => {
-      setReviews(response.data.no_of_reviews);
-    });
-  }, []);
+  const [id , setId] = useState(props.appid)
+  // const baseURL = `https://cors-everywhere.herokuapp.com/http://52.66.244.63:8000/no_of_reviews/${id}`;
+  // useEffect(() => {
+  //   console.log("hello")
+  //   axios.get(baseURL).then((response) => {
+  //     setReviews(response.data.no_of_reviews);
+  //   });
+  // }, [id]);
 
   return (
     <div>
@@ -21,12 +24,12 @@ function Reviews() {
         <Col span={12}>
           <Statistic
             title="Reviews"
-            value={reviews}
+            value={props.review}
             prefix={<LikeOutlined />}
           />
         </Col>
         <Col span={12}>
-          <Statistic title="App ID" value="597970" />
+          <Statistic title="App ID" value={props.appid} />
         </Col>
         <Col span={12}>
           {/* <Statistic title="Rating">
