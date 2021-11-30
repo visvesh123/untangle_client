@@ -6,7 +6,7 @@ import "antd/dist/antd.css";
 import { Statistic, Card, Row, Col } from "antd";
 import { ArrowUpOutlined, ArrowDownOutlined } from "@ant-design/icons";
 
-const baseURL = "http://52.66.244.63:8000/review_sentiments/598450";
+const baseURL = "https://cors-everywhere.herokuapp.com/http://52.66.244.63:8000/review_sentiments/598450";
 
 function Sentiments() {
   const [sentiments, setSentiments] = useState();

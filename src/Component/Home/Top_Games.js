@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const baseURL = "http://52.66.244.63:8000/review_sentiments/598450";
+const baseURL = "https://cors-everywhere.herokuapp.com/http://52.66.244.63:8000/review_sentiments/598450";
 
 function Games() {
   const [games, setGames] = useState();

@@ -5,7 +5,7 @@ import { Statistic, Row, Col } from "antd";
 import { LikeOutlined } from "@ant-design/icons";
 import Rating from "./Rating";
 
-const baseURL = "http://52.66.244.63:8000/no_of_reviews/597970";
+const baseURL = "https://cors-everywhere.herokuapp.com/http://52.66.244.63:8000/no_of_reviews/597970";
 
 function Reviews() {
   const [reviews, setReviews] = useState();

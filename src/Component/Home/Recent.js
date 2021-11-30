@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const baseURL = "http://52.66.244.63:8000/recent_reviews/598450";
+const baseURL = "https://cors-everywhere.herokuapp.com/http://52.66.244.63:8000/recent_reviews/598450";
 
 function Recent() {
   const [recent, setRecent] = useState();

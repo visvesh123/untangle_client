@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Card, Col, Row } from "antd";
 
-const baseURL = "http://52.66.244.63:8000/avg_rating/598450";
+const baseURL = "https://cors-everywhere.herokuapp.com/http://52.66.244.63:8000/avg_rating/598450";
 
 function Rating() {
   const [rating, setRating] = useState();
